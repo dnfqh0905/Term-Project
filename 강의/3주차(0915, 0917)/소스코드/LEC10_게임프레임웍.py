@@ -39,7 +39,9 @@ while running :
 		b.update()
 
 	clear_canvas()
+
 	grass.draw()
+	
 	for b in team:
 		b.draw()
 
