@@ -1,8 +1,8 @@
 from pico2d import *
 
 open_canvas()
-img = load_image('이미지/character.png')
-gra = load_image('이미지/grass.png')
+img = load_image('../../이미지/character.png')
+gra = load_image('../../이미지/grass.png')
 
 for x in range(0, 800, 2):
 	clear_canvas_now()
