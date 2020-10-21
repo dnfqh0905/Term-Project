@@ -6,10 +6,12 @@ canvas_width = 1300
 canvas_height = 900
 
 def enter():
-    gfw.world.init(['bg', 'fence', 'ui', 'menu'])
-
-    bg = gobj.ImageObject('bg.png', canvas_width//2, canvas_height//2)
-    gfw.world.add(gfw.layer.bg, bg)
+    gfw.world.init(['tile', 'fence', 'ui', 'menu'])
+    
+    for y in range(canvas_height, 0, -200):
+        for x in range(0, canvas_width, 200):
+            tile = gobj.ImageObject('tile_1.png', x, y)
+            gfw.world.add(gfw.layer.tile, tile)
     fence = gobj.ImageObject('Fence.png', canvas_width//20, canvas_height//2.25)
     gfw.world.add(gfw.layer.fence, fence)
     ui = gobj.ImageObject('Wood.png', canvas_width//9.5, canvas_height//1.07)
@@ -24,7 +26,6 @@ def draw():
     gfw.world.draw()
 
 def handle_event(e):
-    # prev_dx = boy.dx
     if e.type == SDL_QUIT:
         gfw.quit()
     elif e.type == SDL_KEYDOWN:
