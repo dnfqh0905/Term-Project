@@ -78,6 +78,15 @@ class ImageObject:
     # def __del__(self):
     #     print('Del Img:', self)
 
+class ImageBackground:
+    def __init__(self, imageName):
+        self.imageName = imageName
+        self.image = gfw.image.load(res(imageName))
+    def draw(self):
+        self.image.draw_to_origin(0, 0, get_canvas_width(), get_canvas_height())
+    def update(self):
+        pass
+
 class AnimObject:
     def __init__(self, imageName, pos, fps, fcount=0):
         self.time = get_time()

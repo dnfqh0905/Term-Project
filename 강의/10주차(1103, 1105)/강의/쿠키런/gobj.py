@@ -75,29 +75,6 @@ class ImageObject:
     def __setstate__(self, dict):
         self.__dict__.update(dict)
         self.image = gfw.image.load(res(self.imageName))
-    # def __del__(self):
-    #     print('Del Img:', self)
-
-class AnimObject:
-    def __init__(self, imageName, pos, fps, fcount=0):
-        self.time = get_time()
-        self.image = gfw.image.load(RES_DIR + '/' + imageName)
-        self.pos = pos
-        self.fps = fps
-        if fcount == 0:
-            fcount = self.image.w // self.image.h
-        self.width = self.image.w // fcount
-        self.height = self.image.h
-        self.fcount = fcount
-    def draw(self):
-        elapsed = get_time() - self.time
-        fidx = round(elapsed * self.fps) % self.fcount
-        sx = self.width * fidx
-        self.image.clip_draw(sx, 0, self.width, self.height, *self.pos)
-    def update(self):
-        pass
-    # def __del__(self):
-    #     print('Del Anim:', self)
 
 if __name__ == "__main__":
 	print("This file is not supposed to be executed directly.")
