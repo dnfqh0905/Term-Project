@@ -5,7 +5,7 @@ canvas_width = 1600
 canvas_height = 900
 
 def init():
-    global fence, fpos, hp
+    global fence, fpos
     fence = gfw.image.load('res/Fence.png')
     fpos = canvas_width-1550, canvas_height-500
 
@@ -17,8 +17,6 @@ def update():
     pass
 
 def get_bb():
-    global hw, hh, x, y
-    hw = 50
-    hh = 400
+    global fpos, x, y
     x,y = fpos
-    return x - hw, y - hh, x + hw, y + hh    
+    return x - 50, y - 400, x + 50, y + 400    

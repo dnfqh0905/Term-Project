@@ -27,22 +27,21 @@ def enter():
     character = Character()
 
     global zombie_time
-    zombie_time = 1
+    zombie_time = 3
 
     global font
-    font = gfw.font.load('res/CookieRun Regular.ttf', 40)
+    font = gfw.font.load('res/Regular.ttf', 40)
 
     global gold
     gold = 1000
 
 def check_enemy(e):
-    global gold, destroy
+    global gold
     if gobj.collides_box(character, e):
         gfw.world.remove(e)
         gold += 100
     if gobj.collides_box(fence, e):
         e.speed = 0
-
 
 def create():	
     gfw.world.add(gfw.layer.character, character)
@@ -55,7 +54,7 @@ def update():
     zombie_time -= gfw.delta_time
     if zombie_time <= 0:
         gfw.world.add(gfw.layer.zombie, Zombie())
-        zombie_time = 5
+        zombie_time = 3
 
     for e in gfw.world.objects_at(gfw.layer.zombie):
         check_enemy(e)    

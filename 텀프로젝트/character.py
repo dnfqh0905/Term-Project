@@ -2,9 +2,6 @@ from pico2d import *
 import gfw
 from gobj import *
 
-canvas_width = 1600
-canvas_height = 900
-
 class Character:	
 	def __init__(self):         
 		self.pos = 1300, 680
