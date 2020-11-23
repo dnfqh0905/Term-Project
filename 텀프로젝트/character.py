@@ -7,7 +7,7 @@ canvas_height = 900
 
 class Character:	
 	def __init__(self):         
-		self.pos = 1300, 700
+		self.pos = 1300, 680
 		self.image = gfw.image.load('res/Character_1.png')
 
 	def update(self):
@@ -18,8 +18,8 @@ class Character:
 		draw_rectangle(*self.get_bb()) 
 
 	def get_bb(self):
-		hw = self.image.w - 150
-		hh = self.image.h - 120
+		hw = self.image.w - 80
+		hh = self.image.h - 80
 		x,y = self.pos
 		return x - hw, y - hh, x + hw, y + hh	
 		

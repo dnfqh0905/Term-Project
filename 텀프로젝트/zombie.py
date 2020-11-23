@@ -30,7 +30,7 @@ class Zombie:
         draw_rectangle(*self.get_bb())    
 
     def get_bb(self):
-        hw = self.image.w - 140
-        hh = self.image.h - 120
+        hw = self.image.w - 60
+        hh = self.image.h - 100
         x,y = self.pos
         return x - hw, y - hh, x + hw, y + hh        
