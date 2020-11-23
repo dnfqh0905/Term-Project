@@ -4,12 +4,13 @@ from pico2d import *
 import gobj
 from zombie import Zombie
 import fence
+from character import Character
 
 canvas_width = 1600
 canvas_height = 900
 
 def enter():
-    gfw.world.init(['tile', 'fence', 'ui', 'menu', 'zombie'])
+    gfw.world.init(['tile', 'fence', 'character', 'zombie', 'ui', 'menu'])    
     
     for y in range(canvas_height, 0, -200):
         for x in range(-100, canvas_width, 200):
@@ -22,8 +23,14 @@ def enter():
     menu = gobj.ImageObject('menu.png', canvas_width-100, canvas_height-55)
     gfw.world.add(gfw.layer.menu, menu)
 
+    global character
+    character = Character()
+
     global zombie_time
     zombie_time = 1
+
+def create():	
+    gfw.world.add(gfw.layer.character, character)
 
 def update():
     gfw.world.update()
@@ -42,6 +49,8 @@ def handle_event(e):
     elif e.type == SDL_KEYDOWN:
         if e.key == SDLK_ESCAPE:
             gfw.pop()
+    elif e.type == SDL_MOUSEBUTTONDOWN:
+    	create()            
 
 def exit():
     pass
