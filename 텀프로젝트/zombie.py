@@ -4,19 +4,16 @@ import gfw
 from gobj import *
 
 class Zombie:
-    FPS = 12
     def __init__(self):
         self.pos = random.choice([(1700, 500), (1700, 300), (1700, 700), (1700, 100)])
         self.delta = 0.3, 0
         self.speed = 200
-        self.y = get_canvas_height()
         self.image = gfw.image.load('res/Monster.png')
         self.time = 0
-        self.fidx = 0
+        self.atk = 50
 
     def update(self):
         self.time += gfw.delta_time
-        self.fidx = round(self.time * Zombie.FPS)
 
         x,y = self.pos
         dx,dy = self.delta

@@ -29,11 +29,20 @@ def enter():
     global zombie_time
     zombie_time = 1
 
+    global font
+    font = gfw.font.load('res/CookieRun Regular.ttf', 40)
+
+    global gold
+    gold = 1000
+
 def check_enemy(e):
+    global gold, destroy
     if gobj.collides_box(character, e):
-        e.speed = 0
+        gfw.world.remove(e)
+        gold += 100
     if gobj.collides_box(fence, e):
-        e.speed = 0    
+        e.speed = 0
+
 
 def create():	
     gfw.world.add(gfw.layer.character, character)
@@ -53,6 +62,11 @@ def update():
 
 def draw():
     gfw.world.draw()
+    menu_pos = get_canvas_width() - 170, get_canvas_height() - 50
+    font.draw(*menu_pos, 'MENU', (255,255,255))
+    gold_pos = get_canvas_width() - 1550, get_canvas_height() - 60
+    font.draw(*gold_pos, 'Coin:%d' % gold, (0,0,0))
+
 
 def handle_event(e):
     if e.type == SDL_QUIT:
