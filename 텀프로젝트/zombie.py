@@ -10,7 +10,7 @@ class Zombie:
         self.delta = 0.3, 0
         self.speed = 200
         self.y = get_canvas_height()
-        self.image = gfw.image.load(RES_DIR + '/Monster.png')
+        self.image = gfw.image.load('res/Monster.png')
         self.time = 0
         self.fidx = 0
 
@@ -27,3 +27,10 @@ class Zombie:
 
     def draw(self):
         self.image.draw(*self.pos)
+        draw_rectangle(*self.get_bb())    
+
+    def get_bb(self):
+        hw = self.image.w - 140
+        hh = self.image.h - 120
+        x,y = self.pos
+        return x - hw, y - hh, x + hw, y + hh        
