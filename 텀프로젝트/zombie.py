@@ -6,7 +6,7 @@ from gobj import *
 class Zombie:
     FPS = 12
     def __init__(self):
-        self.pos = random.choice([(1200, 500), (1200, 300), (1200, 700), (1200, 100)])
+        self.pos = random.choice([(1700, 500), (1700, 300), (1700, 700), (1700, 100)])
         self.delta = 0.3, 0
         self.speed = 200
         self.y = get_canvas_height()
