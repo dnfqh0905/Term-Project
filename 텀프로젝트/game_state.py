@@ -3,6 +3,7 @@ import gfw
 from pico2d import *
 import gobj
 from zombie import Zombie
+import fence
 
 canvas_width = 1600
 canvas_height = 900
@@ -14,7 +15,7 @@ def enter():
         for x in range(-100, canvas_width, 200):
             tile = gobj.ImageObject('tile_1.png', x, y)
             gfw.world.add(gfw.layer.tile, tile)
-    fence = gobj.ImageObject('Fence.png', canvas_width-1550, canvas_height-500)
+    fence.init()
     gfw.world.add(gfw.layer.fence, fence)
     ui = gobj.ImageObject('Wood.png', canvas_width-1450, canvas_height-55)
     gfw.world.add(gfw.layer.ui, ui)
